@@ -18,6 +18,9 @@ export default class TodoList extends Component {
         this.todoTitleHandler = this.todoTitleHandler.bind(this)
         this.statusHandler = this.statusHandler.bind(this)
 
+        console.log('TodoList => constructor');
+
+
     }
 
     statusHandler(event) {
@@ -41,7 +44,7 @@ export default class TodoList extends Component {
         this.setState({
             todos: todosArray
         })
-        
+
     }
 
     removeTodo(todoId) {
@@ -63,13 +66,13 @@ export default class TodoList extends Component {
 
         let newTodo = { id: this.state.todos.length + 1, title: this.state.todoTitle, completed: false }
 
-        if(newTodo.title) {
+        if (newTodo.title) {
 
             this.setState({
                 todos: [...this.state.todos, newTodo],
                 todoTitle: ''
             })
-            
+
         } else {
             alert('Please Enter Value')
         }
@@ -86,7 +89,25 @@ export default class TodoList extends Component {
         })
     }
 
+
+    static getDerivedStateFromProps() {
+        console.log('TodoList => getDerivedStateFromProps')
+    }
+
+    shouldComponentUpdate() {
+        console.log('TodoList => shouldComponentUpdate')
+
+        return true
+    }
+
+    componentDidMount() {
+        console.log('TodoList => componentDidMount');
+
+    }
+
     render() {
+        console.log('TodoList => render');
+
         return (
             <>
                 <Header />
