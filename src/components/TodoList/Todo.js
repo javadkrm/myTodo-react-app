@@ -1,46 +1,27 @@
-import React, { Component, PureComponent } from 'react'
+import React, { useState } from 'react'
 
-export default class Todo extends PureComponent {
+export default function Todo(props) {
 
-    constructor(props) {
-
-        super(props)
-
-        console.log('Todo => constructor');
-
-        this.state = {
-            todoId: '',
-            todoTitle: '',
-            todoComplete: false
-        }
-
+    const todoRemover = (id) => {
+        props.onRemove(id)
     }
 
-    todoRemover(id) {
-        this.props.onRemove(id)
+    const todoEditor = (id) => {
+        props.onComplete(id)
     }
 
-    todoEditor(id) {
-        this.props.onComplete(id)
-    }
+    return (
+        // 'completed' class for completed todos
+        <div className={`todo ${props.completed ? 'completed' : ''}`} style={{ display: 'flex' }}>
+            <li className="todo-item">{props.title}</li>
 
-    render() {
+            <button className="check-btn" onClick={() => todoEditor(props.id)}>
+                <i className="fas fa-check" aria-hidden="true"></i>
+            </button>
 
-        console.log('Todo => render')
-
-        return (
-            // 'completed' class for completed todos
-            <div className={`todo ${this.props.completed ? 'completed' : ''}`} style={{ display: 'flex' }}>
-                <li className="todo-item">{this.props.title}</li>
-
-                <button className="check-btn" onClick={this.todoEditor.bind(this, this.props.id)}>
-                    <i className="fas fa-check" aria-hidden="true"></i>
-                </button>
-
-                <button className="trash-btn" onClick={this.todoRemover.bind(this, this.props.id)}>
-                    <i className="fas fa-trash" aria-hidden="true"></i>
-                </button>
-            </div>
-        )
-    }
+            <button className="trash-btn" onClick={() => todoRemover(props.id)}>
+                <i className="fas fa-trash" aria-hidden="true"></i>
+            </button>
+        </div>
+    )
 }
