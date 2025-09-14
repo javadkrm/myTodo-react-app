@@ -89,22 +89,6 @@ export default class TodoList extends Component {
         })
     }
 
-
-    static getDerivedStateFromProps() {
-        console.log('TodoList => getDerivedStateFromProps')
-    }
-
-    shouldComponentUpdate() {
-        console.log('TodoList => shouldComponentUpdate')
-
-        return true
-    }
-
-    componentDidMount() {
-        console.log('TodoList => componentDidMount');
-
-    }
-
     render() {
         console.log('TodoList => render');
 

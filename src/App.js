@@ -12,19 +12,6 @@ class App extends React.Component {
 
   }
 
-  static getDerivedStateFromProps() {
-    console.log('App => getDerivedStateFromProps')
-  }
-  
-  shouldComponentUpdate () {
-    console.log('App => shouldComponentUpdate')
-  }
-
-  componentDidMount() {
-    console.log('App => componentDidMount');
-
-  }
-
   render() {
 
     console.log('App => render')

@@ -24,31 +24,6 @@ export default class Todo extends PureComponent {
         this.props.onComplete(id)
     }
 
-    componentDidMount() {
-        console.log('Todo => componentDidMount');
-
-    }
-
-    static getDerivedStateFromProps(props, state) {
-        console.log('Todo => getDerviedStateFromProps')
-
-        return {
-            todoId: props.id,
-            todoTitle: props.title,
-            todoComplete: props.completed,
-        }
-    }
-
-    shouldComponentUpdate(props, state) {
-        console.log('Todo => shouldComponentUpdate')
-        // if (this.props.title === props.title) {
-        //     return false
-        // } else {
-            
-        //     return true
-        // }
-    }
-
     render() {
 
         console.log('Todo => render')
