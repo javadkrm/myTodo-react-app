@@ -1,6 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Todo(props) {
+
+    useEffect(() => {
+        console.log('todo.js => Update');
+    })
+
+    useEffect(() => {
+        console.log('todo.js => Mount');
+        
+        return () => {
+            console.log('todo.js => UnMount');
+        }
+    }, [])
 
     const todoRemover = (id) => {
         props.onRemove(id)

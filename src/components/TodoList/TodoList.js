@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import Todo from './Todo'
 
@@ -9,6 +9,14 @@ export default function TodoList() {
     const [todos, setTodos] = useState([])
     const [todoTitle, setTodotitle] = useState('')
     const [status, setStatus] = useState('all')
+
+    useEffect(() => {
+        console.log('TodoList.js => Update');
+    })
+
+    useEffect(() => {
+        console.log('TodoList.js => Mount');
+    }, [])
 
 
     const statusHandler = (event) => {
